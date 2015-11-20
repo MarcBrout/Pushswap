@@ -5,10 +5,10 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Thu Oct  8 11:23:34 2015 marc brout
-** Last update Sat Oct 17 23:29:27 2015 marc brout
+** Last update Mon Nov 16 19:31:16 2015 marc brout
 */
 #ifndef MY_H_
-#define MY_H_
+# define MY_H_
 void my_putchar(char);
 int my_isneg(int);
 int my_put_nbr(int);

@@ -5,48 +5,36 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Thu Nov 12 19:36:27 2015 marc brout
-** Last update Mon Nov 16 14:17:05 2015 marc brout
+** Last update Fri Nov 20 14:08:26 2015 marc brout
 */
 
 #include "include/pushswap.h"
 
-void		tri(t_psw *psw)
+void		tri(t_psw *psw, int v)
 {
   int		len;
-  
-  fill_list(psw);
+
+  fill_list(psw, v);
   calc_len(&len, psw->rootb);
   while (len-- > 1)
-    {
-      my_putchar(' ');
-      pa(psw);
-    }
-  my_putchar('\n');
-  show_l(psw->roota);
+    pa(psw, v);
+  if (v == 0)
+    my_putstr("\b\n");
 }
 
-void		rotator(t_psw *psw, int nbrot)
+void		rotator(t_psw *psw, int nbrot, int v)
 {
   if (nbrot > 0)
-    while (nbrot > 1)
-      {
-	my_putchar(' ');
-	ra(psw);
-	nbrot -= 1;
-      }
+    while (nbrot-- > 1)
+      ra(psw, v);
   else
-    while (nbrot < 0)
-      {
-	my_putchar(' ');
-	rra(psw);
-	nbrot += 1;
-      }
-  my_putchar(' ');
-  pb(psw);
-  /* printf("\nval pushed : %d\n==========\n",psw->rootb->next->val); */
+    while (nbrot++ < 0)
+      rra(psw, v);
+  pb(psw, v);
+
 }
 
-void		fill_list(t_psw *psw)
+void		fill_list(t_psw *psw, int v)
 {
   int		rot;
   int		len;
@@ -54,10 +42,10 @@ void		fill_list(t_psw *psw)
   calc_len(&len, psw->roota);
   while (len > 2)
     {
-      calc_len(&len, psw->roota);
       rot = find_small(psw->roota, len);
-      rotator(psw, rot);
-    } 
+      rotator(psw, rot, v);
+      calc_len(&len, psw->roota);
+    }
 }
 
 int		find_small(t_nb *la, int len)
@@ -72,19 +60,14 @@ int		find_small(t_nb *la, int len)
   small = tmp->val;
   i = 1;
   pos = 0;
-  /* printf("\n-----------"); */
   while (tmp->root != 1)
     {
       pos = ((tmp->val < small) ? i : pos);
       small = ((tmp->val < small) ? tmp->val : small);
-      /* printf("\npos = %d\n", pos); */
       tmp = tmp->next;
       i++;
     }
-  /* printf("\nsmall = : %d\n", small); */
-  /* printf("-----------\n"); */
   nbrot = ((pos <= (len / 2)) ? pos : -(len - pos));
-  /* printf("rotation : %d\n", nbrot); */
   return (nbrot);
 }
 
