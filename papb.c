@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Thu Nov 12 17:25:28 2015 marc brout
-** Last update Fri Nov 20 10:19:42 2015 marc brout
+** Last update Sat Nov 21 09:09:14 2015 marc brout
 */
 
 #include <stdlib.h>
@@ -26,7 +26,7 @@ void		pa(t_psw *psw, int v)
 {
   int		nb;
 
-  my_putstr("pa ");
+  my_putstr("pa");
   nb = psw->rootb->next->val;
   add_elem_beg(nb, psw->roota);
   rm_first_elem(psw->rootb);
@@ -38,7 +38,10 @@ void		pb(t_psw *psw, int v)
 {
   int		nb;
 
-  my_putstr("pb ");
+  if (v == 1)
+    my_putstr("pb");
+  else
+    my_putstr("pb ");
   nb = psw->roota->next->val;
   add_elem_beg(nb, psw->rootb);
   rm_first_elem(psw->roota);

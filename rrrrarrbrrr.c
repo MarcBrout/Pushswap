@@ -5,14 +5,17 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Thu Nov 12 17:11:18 2015 marc brout
-** Last update Mon Nov 16 17:34:13 2015 marc brout
+** Last update Sat Nov 21 09:10:45 2015 marc brout
 */
 
 #include "include/pushswap.h"
 
 void		rr(t_psw *psw, int v)
 {
-  my_putstr("rr ");
+  if (v == 1)
+    my_putstr("rr");
+  else
+    my_putstr("rr ");
   psw->roota->val = psw->roota->next->val;
   psw->roota->root = 0;
   psw->roota->next->val = 0;
@@ -29,7 +32,10 @@ void		rr(t_psw *psw, int v)
 
 void		rra(t_psw *psw, int v)
 {
-  my_putstr("rra ");
+  if (v == 1)
+    my_putstr("rra");
+  else
+    my_putstr("rra ");
   psw->roota->val = psw->roota->prev->val;
   psw->roota->root = 0;
   psw->roota->prev->val = 0;
@@ -41,7 +47,10 @@ void		rra(t_psw *psw, int v)
 
 void		rrb(t_psw *psw, int v)
 {
-  my_putstr("rrb ");
+  if (v == 1)
+    my_putstr("rrb");
+  else
+    my_putstr("rrb ");
   psw->rootb->val = psw->rootb->prev->val;
   psw->rootb->root = 0;
   psw->rootb->prev->val = 0;
@@ -53,7 +62,10 @@ void		rrb(t_psw *psw, int v)
 
 void		rrr(t_psw *psw, int v)
 {
-  my_putstr("rrr ");
+  if (v == 1)
+    my_putstr("rrr");
+  else
+    my_putstr("rrr ");
   psw->roota->val = psw->roota->prev->val;
   psw->roota->root = 0;
   psw->roota->prev->val = 0;

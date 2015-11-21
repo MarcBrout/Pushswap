@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Thu Nov 12 19:36:27 2015 marc brout
-** Last update Fri Nov 20 14:08:26 2015 marc brout
+** Last update Sat Nov 21 09:07:13 2015 marc brout
 */
 
 #include "include/pushswap.h"
@@ -16,10 +16,14 @@ void		tri(t_psw *psw, int v)
 
   fill_list(psw, v);
   calc_len(&len, psw->rootb);
-  while (len-- > 1)
-    pa(psw, v);
+  while (len > 1)
+    {
+      pa(psw, v);
+      if (len-- > 2 && v == 0) 
+	my_putchar(' ');
+    }
   if (v == 0)
-    my_putstr("\b\n");
+    my_putstr("\n");
 }
 
 void		rotator(t_psw *psw, int nbrot, int v)
@@ -40,12 +44,14 @@ void		fill_list(t_psw *psw, int v)
   int		len;
 
   calc_len(&len, psw->roota);
-  while (len > 2)
+  while (len > 3)
     {
       rot = find_small(psw->roota, len);
       rotator(psw, rot, v);
       calc_len(&len, psw->roota);
     }
+  if (psw->roota->next->val > psw->roota->next->next->val)
+    sa(psw, v);
 }
 
 int		find_small(t_nb *la, int len)
