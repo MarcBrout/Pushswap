@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Thu Nov 12 12:56:29 2015 marc brout
-** Last update Fri Nov 20 16:35:52 2015 marc brout
+** Last update Sat Nov 21 09:42:39 2015 marc brout
 */
 
 #ifndef PUSHSWAP_H_
@@ -22,7 +22,9 @@ typedef struct		s_nb
 typedef struct		s_psw
 {
   t_nb			*roota;
+  int			lena;
   t_nb			*rootb;
+  int			lenb;
 }			t_psw;
 
 t_psw *init_all();

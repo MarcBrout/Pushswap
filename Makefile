@@ -5,15 +5,15 @@
 ## Login   <bougon_p@epitech.net>
 ## 
 ## Started on  Thu Oct 29 14:45:48 2015 Pierre Bougon
-## Last update Fri Nov 20 13:26:17 2015 marc brout
+## Last update Sat Nov 21 09:58:46 2015 marc brout
 ##
 
 SRC     = pushswap.c \
 	papb.c \
 	rrrrarrbrrr.c \
 	tri.c \
-	sasbssrarb.c \
-	trideux.c
+	sasbssrarb.c
+
 
 OBJS    = $(SRC:.c=.o)
 

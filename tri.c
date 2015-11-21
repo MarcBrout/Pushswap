@@ -5,21 +5,19 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Thu Nov 12 19:36:27 2015 marc brout
-** Last update Sat Nov 21 09:07:13 2015 marc brout
+** Last update Sat Nov 21 10:06:40 2015 marc brout
 */
 
 #include "include/pushswap.h"
 
 void		tri(t_psw *psw, int v)
 {
-  int		len;
-
   fill_list(psw, v);
-  calc_len(&len, psw->rootb);
-  while (len > 1)
+  calc_len(&(psw->lenb), psw->rootb);
+  while (psw->lenb > 1)
     {
       pa(psw, v);
-      if (len-- > 2 && v == 0) 
+      if (psw->lenb-- > 2 && v == 0)
 	my_putchar(' ');
     }
   if (v == 0)
@@ -41,16 +39,16 @@ void		rotator(t_psw *psw, int nbrot, int v)
 void		fill_list(t_psw *psw, int v)
 {
   int		rot;
-  int		len;
 
-  calc_len(&len, psw->roota);
-  while (len > 3)
+  calc_len(&(psw->lena), psw->roota);
+  while (psw->lena > 3)
     {
-      rot = find_small(psw->roota, len);
+      rot = find_small(psw->roota, psw->lena);
       rotator(psw, rot, v);
-      calc_len(&len, psw->roota);
+      calc_len(&(psw->lena), psw->roota);
     }
-  if (psw->roota->next->val > psw->roota->next->next->val)
+  if (psw->roota->next->val > psw->roota->next->next->val
+      && psw->lena > 2)
     sa(psw, v);
 }
 

@@ -5,7 +5,7 @@
 ** Login   <brout_m@epitech.net>
 ** 
 ** Started on  Thu Nov 12 16:52:25 2015 marc brout
-** Last update Sat Nov 21 09:12:57 2015 marc brout
+** Last update Sat Nov 21 09:51:02 2015 marc brout
 */
 
 #include "include/pushswap.h"
@@ -14,7 +14,7 @@ void		sa(t_psw *psw, int v)
 {
   int		stock;
 
-  if (v == 1)
+  if (v == 1 || psw->lena == 3)
     my_putstr("sa");
   else
     my_putstr("sa ");
@@ -60,7 +60,7 @@ void		ss(t_psw *psw, int v)
 
 void		ra(t_psw *psw, int v)
 {
-  if (v == 1)
+  if (v == 1 || psw->lena == 3)
     my_putstr("ra");
   else
     my_putstr("ra ");
