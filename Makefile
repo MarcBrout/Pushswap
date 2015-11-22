@@ -5,7 +5,7 @@
 ## Login   <bougon_p@epitech.net>
 ## 
 ## Started on  Thu Oct 29 14:45:48 2015 Pierre Bougon
-## Last update Sat Nov 21 09:58:46 2015 marc brout
+## Last update Sun Nov 22 07:11:30 2015 marc brout
 ##
 
 SRC     = pushswap.c \
@@ -23,7 +23,7 @@ NAME    = push_swap
 
 CC      = gcc
 
-CFLAGS  = -g
+CFLAGS  =
 
 LDFLAGS = -lmy -L$(LIBPATH)
 
